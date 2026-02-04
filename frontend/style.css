@@ -74,6 +74,66 @@ body {
 }
 
 /* Buttons */
+
+.action-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    color: #64748b; /* Boz rəng - ikonlar üçün */
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-btn:hover {
+    background-color: #f1f5f9; /* Açıq boz fon */
+    color: #0f172a; /* Tünd rəng */
+}
+
+.action-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Sağ paneldəki "Kodu Kopyala" düyməsi */
+.btn-copy-fixed {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* İkon və yazı arasındakı məsafə */
+    background-color: transparent;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-copy-fixed:hover {
+    background-color: #f8fafc;
+    border-color: #94a3b8;
+    color: #0f172a;
+}
+
+.btn-copy-fixed:active {
+    transform: translateY(1px);
+}
+
+.btn-copy-fixed svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Kopyalandıqdan sonra yaşıl rəng effekti (Script ikon dəyişəndə vizual dəstək üçün) */
+.btn-copy-fixed .lucide-check {
+    color: #16a34a; /* Uğurlu əməliyyat rəngi */
+}
+
 .btn-primary {
     background: var(--blue-accent);
     color: white;
@@ -144,6 +204,10 @@ body {
     color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+.panel-actions {
+    display: flex;
 }
 
 .text-blue { color: var(--blue-hover); }
