@@ -20,13 +20,10 @@ def format_code():
     temp_file_path = None
 
     try:
-        # 1. Müvəqqəti fayl yaradırıq
         with tempfile.NamedTemporaryFile(suffix=".c", mode='w', delete=False) as temp_file:
             temp_file.write(c_code)
             temp_file_path = temp_file.name
 
-        # 2. bettyfixer-i işə salırıq. 
-        # Bu komanda faylı birbaşa redaktə edir.
         fix_process = subprocess.run(
             ['bettyfixer', temp_file_path],
             stdout=subprocess.PIPE,
@@ -40,7 +37,6 @@ def format_code():
         return jsonify({
             "original_code": c_code,
             "formatted_code": formatted_code,
-            "logs": fix_process.stdout,
             "errors": fix_process.stderr
         }), 200
 
