@@ -1,9 +1,7 @@
-// Lucide ikonlarını inisializasiya et
 lucide.createIcons();
 
 const API_URL = "http://localhost:5000/format";
 
-// Elementləri seçirik
 const inputCode = document.getElementById('input-code');
 const fixedCode = document.getElementById('fixed-code');
 const fixBtn = document.getElementById('fix-btn');
@@ -18,12 +16,10 @@ const copyInputBtn = document.getElementById('copy-input');
 const copyFixedBtn = document.getElementById('copy-fixed');
 const clearBtn = document.getElementById('clear-input');
 
-// Betty düzəltmə funksiyası
 async function handleFixCode() {
     const code = inputCode.value.trim();
     if (!code) return;
 
-    // Loading Başladır
     setLoading(true);
     errorBox.classList.add('hidden');
 
@@ -35,18 +31,17 @@ async function handleFixCode() {
         });
 
         if (!response.ok) {
-            throw new Error('Backend server cavab vermir. Holbeditor xidmətinin aktiv olduğundan əmin olun.');
+            throw new Error('Backend is not responding. Make sure that Holbeditor service is running.');
         }
 
         const data = await response.json();
         
-        // Nəticəni yazdır
         fixedCode.value = data.formatted_code;
         placeholderText.classList.add('hidden');
         copyFixedBtn.classList.remove('hidden');
 
     } catch (err) {
-        errorText.innerText = err.message || 'Xəta baş verdi.';
+        errorText.innerText = err.message || 'Error occured';
         errorBox.classList.remove('hidden');
     } finally {
         setLoading(false);
@@ -56,13 +51,13 @@ async function handleFixCode() {
 function setLoading(isLoading) {
     if (isLoading) {
         fixBtn.disabled = true;
-        btnText.innerText = 'Düzəldilir...';
+        btnText.innerText = 'Formatting...';
         wandIcon.classList.add('hidden');
         loader.classList.remove('hidden');
         loadingOverlay.classList.remove('hidden');
     } else {
         fixBtn.disabled = false;
-        btnText.innerText = 'Betty-ni Düzəlt';
+        btnText.innerText = 'Format in Betty';
         wandIcon.classList.remove('hidden');
         loader.classList.add('hidden');
         loadingOverlay.classList.add('hidden');
@@ -75,8 +70,7 @@ async function copyToClipboard(text, btnElement) {
         await navigator.clipboard.writeText(text);
         const originalContent = btnElement.innerHTML;
         
-        // Müvəqqəti uğur mesajı
-        btnElement.innerHTML = `<i data-lucide="check"></i> <span>Kopyalandı!</span>`;
+        btnElement.innerHTML = `<i data-lucide="check"></i> <span>Copied!</span>`;
         lucide.createIcons(); // Yeni ikonu göstər
         
         setTimeout(() => {
@@ -84,7 +78,7 @@ async function copyToClipboard(text, btnElement) {
             lucide.createIcons();
         }, 2000);
     } catch (err) {
-        console.error('Kopyalanmadı', err);
+        console.error('Could not copy', err);
     }
 }
 

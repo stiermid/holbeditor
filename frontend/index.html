@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="az">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +21,7 @@
                 <button id="fix-btn" class="btn-primary">
                     <i data-lucide="wand-2" id="wand-icon"></i>
                     <div class="loader hidden" id="loader"></div>
-                    <span id="btn-text">Betty-ni Düzəlt</span>
+                    <span id="btn-text">Format in Betty</span>
                 </button>
             </div>
         </header>
@@ -31,19 +31,19 @@
                 <div class="panel-header">
                     <div class="panel-title">
                         <i data-lucide="code"></i>
-                        <span>Giriş Kodu</span>
+                        <span>Input your code</span>
                     </div>
                     <div class="panel-actions">
-                        <button class="action-btn" id="copy-input" title="Kopyala">
+                        <button class="action-btn" id="copy-input" title="Copy">
                             <i data-lucide="copy"></i>
                         </button>
-                        <button class="action-btn" id="clear-input" title="Təmizlə">
+                        <button class="action-btn" id="clear-input" title="Clear">
                             <i data-lucide="trash-2"></i>
                         </button>
                     </div>
                 </div>
                 <div class="editor-container">
-                    <textarea id="input-code" spellcheck="false" placeholder="C kodunu bura daxil edin...">/* Kodu bura yapışdırın */
+                    <textarea id="input-code" spellcheck="false" placeholder="Enter the C code here...">/* Paste the code here */
 #include <stdio.h>
 
 int main(void)
@@ -58,26 +58,26 @@ int main(void)
                 <div class="panel-header">
                     <div class="panel-title text-blue">
                         <i data-lucide="terminal"></i>
-                        <span>Düzəldilmiş Kod</span>
+                        <span>Formatted Code</span>
                     </div>
                     <button class="btn-copy-fixed hidden" id="copy-fixed">
                         <i data-lucide="copy"></i>
-                        <span>Kodu Kopyala</span>
+                        <span>Copy code</span>
                     </button>
                 </div>
                 <div class="editor-container relative">
                     <div id="loading-overlay" class="overlay hidden">
                         <div class="overlay-content">
                             <div class="loader-large"></div>
-                            <p>Holbeditor tərəfindən düzəldilir...</p>
+                            <p>Formatting by Holbeditor...</p>
                         </div>
                     </div>
                     
                     <div id="placeholder-text" class="placeholder">
-                        Nəticəni görmək üçün yuxarıdakı düyməni sıxın
+						Press the button above to see the result
                     </div>
 
-                    <textarea id="fixed-code" readonly spellcheck="false" placeholder="Düzəldilmiş kod burada görünəcək..."></textarea>
+                    <textarea id="fixed-code" readonly spellcheck="false" placeholder="Formatted code will be displayed here..."></textarea>
                     
                     <div id="error-box" class="error-msg hidden">
                         <i data-lucide="alert-circle"></i>
