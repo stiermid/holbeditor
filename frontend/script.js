@@ -1,7 +1,7 @@
 // Lucide ikonlarını inisializasiya et
 lucide.createIcons();
 
-const API_URL = "http://localhost:8000/fix";
+const API_URL = "http://localhost:5000/format";
 
 // Elementləri seçirik
 const inputCode = document.getElementById('input-code');
@@ -41,7 +41,7 @@ async function handleFixCode() {
         const data = await response.json();
         
         // Nəticəni yazdır
-        fixedCode.value = data.fixed_code;
+        fixedCode.value = data.formatted_code;
         placeholderText.classList.add('hidden');
         copyFixedBtn.classList.remove('hidden');
 
